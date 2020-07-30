@@ -1,0 +1,29 @@
+%h3 All Orders
+.row
+  .col-md-10.col-md-offset-1.col-sm-12
+    = search_form_for @q do |f|
+      .form-inline.bottom-space
+        .form-group
+          = f.search_field :number_or_state_or_user_email_cont, class: 'search-box form-control', placeholder: 'Search by name, state or user email'
+          = f.submit 'Search', class: 'btn btn-primary'
+          = link_to 'Clear Search', reset_search_orders_path, method: :get, class: 'btn btn-default'
+
+    .table-responsive
+      %table.table.table-bordered
+        %thead
+          %tr
+            %th= sort_link(@q, :number)
+            %th= sort_link(@q, :state)
+            %th= sort_link(@q, :total)
+            %th= sort_link(@q, :user_id)
+            %th Actions
+        %tbody
+          - @orders.each do |order|
+            %tr
+              %td= link_to order.number, order_path(order)
+              %td= order.state.capitalize
+              %td= order.total
+              %td= order.user.email
+              %td= link_to 'Cancel Order', order_cancel_order_path(order_number: order.number), class: 'btn btn-sm btn-danger', disabled: order.state != 'building'
+
+          = render partial: 'shared/pagination', locals: { pagy: @pagy }

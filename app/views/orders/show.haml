@@ -1,0 +1,33 @@
+%h3 Order Details
+.row
+  .col-md-10.col-md-offset-1.col-sm-12
+    .row
+      .col-sm-1.labeled
+        Name
+      .col-sm-4
+        = @order.number
+    .row
+      .col-sm-1.labeled
+        State
+      .col-sm-4
+        = @order.state.capitalize
+    .row
+      .col-sm-1.labeled
+        Amount
+      .col-sm-4
+        = number_to_currency(@order.total)
+    .row
+      .col-sm-1.labeled
+        Building
+      .col-sm-4
+        = @order.building_at&.strftime('%m/%d/%y')
+    .row
+      .col-sm-1.labeled
+        Arrived
+      .col-sm-4
+        = @order.arrived_at&.strftime('%m/%d/%y')
+    .row
+      .col-sm-1.labeled
+        Customer
+      .col-sm-4
+        = @order.user.email
