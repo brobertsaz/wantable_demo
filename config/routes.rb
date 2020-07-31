@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :reports, only: :index do
+    collection do
+      get :product_sales_search
+      get :coupon_search
+    end
   end
 end

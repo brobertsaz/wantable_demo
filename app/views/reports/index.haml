@@ -1,0 +1,10 @@
+= form_tag coupon_search_reports_path, class: 'form-inline' do
+  = select_tag 'coupon_id', options_from_collection_for_select(Coupon.all, 'id', 'name'), class: 'form-control'
+  = submit_tag 'Select', class: 'btn btn-primary'
+
+
+= form_tag coupon_search_reports_path, class: 'form-inline' do
+  = text_field_tag 'start_date', nil, type: :date, class: 'form-control'
+  = text_field_tag 'end_date', nil, type: :date, class: 'form-control'
+  = submit_tag 'Search', class: 'btn btn-primary'
+
