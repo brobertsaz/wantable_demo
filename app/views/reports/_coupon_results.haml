@@ -1,1 +1,15 @@
-%h4 Results
+- if @coupon
+  %h5 Results
+  .table-responsive
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th Customer
+          %th Number of Items
+          %th Revenue
+      %tbody
+        - @coupon.orders.each do |order|
+          %tr
+            %td= order.user.email
+            %td= order.order_items.size
+            %td= number_to_currency(order.total)

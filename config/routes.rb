@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   resources :reports, only: :index do
     collection do
-      post :product_sales_search
-      post :coupon_search
+      get :product_sales_search
+      get :coupon_search
     end
   end
 end

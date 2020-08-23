@@ -1,1 +1,15 @@
-%h4 Results
+- if @products
+  %h5 Results
+  .table-responsive
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th Product Name
+          %th Sold Count
+          %th Revenue
+      %tbody
+        - @products.each do |product|
+          %tr
+            %td= product.name
+            %td= product.order_items.sum(:quantity)
+            %td= number_to_currency(product.order_items.sum(:price))

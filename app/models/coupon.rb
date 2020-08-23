@@ -13,4 +13,5 @@ class Coupon < ApplicationRecord
 
   has_many :order_items,
            as: :source
+  has_many :orders, through: :order_items
 end

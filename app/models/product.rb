@@ -27,4 +27,6 @@ class Product < ApplicationRecord
 
   has_many :order_items,
            as: :source
+
+  default_scope { order(name: :asc) }
 end

@@ -1,20 +1,17 @@
 .col-md-10.col-md-offset-1.col-sm-12
-
-
   .row
     %h4 Order Information based on Coupon
-    = form_with url: coupon_search_reports_path, method: :post, class: 'form-inline' do
+    = form_with url: coupon_search_reports_path, method: :get, class: 'form-inline' do
       = select_tag 'coupon_id', options_from_collection_for_select(Coupon.all, 'id', 'name'), { prompt: 'Select Coupon', class: 'form-control'}
       = submit_tag 'Select', class: 'btn btn-primary'
 
   .row.coupon_results
-    = render 'coupon_results'
-
-  %hr
+    - if @coupon
+      = render 'coupon_results'
 
   .row
     %h4 Product Information based on date range
-    = form_with url: product_sales_search_reports_path, method: :post, class: 'form-inline' do
+    = form_with url: product_sales_search_reports_path, method: :get, class: 'form-inline' do
       = text_field_tag 'start_date', nil, type: :date, class: 'form-control'
       = text_field_tag 'end_date', nil, type: :date, class: 'form-control'
       = submit_tag 'Search', class: 'btn btn-primary'

@@ -1,3 +1,18 @@
+# Challenge Notes
+
+This was actually fun and a bit challenging.  Here are my notes:
+
+- I have gotten hooked on Rails as an API and React front end but due to time contraints I left it old school Rails
+- I am a big fan of Rspec but I did not use and tests for this challenge
+- I tried to add as few new gems as possible
+
+## TODO
+
+- Add pagination for the reports
+- Add feature specs
+- Upgrade to Boostrap 4
+
+
 # Wantable Code Challenge App (Simple E-Commerce)
 
 Welcome to the challenge portion of your Wantable Rails interview! Here we've provided a sample application and database with data already created and we're asking you to make some backend order fulfillment and reporting pages for it! The goal is to spend 3-5 hours on this so don't go overboard with styling or making it look perfect; we're looking to see how you implement the solutions. There are a ton of different ways to meet these requirements and we want to see what you would do and what you're most comfortable building in. Choose your own adventure! Feel free to add/remove routes/controllers/gems/frontend frameworks if you feel like it better "completes" the app or you are more comfortable with.
